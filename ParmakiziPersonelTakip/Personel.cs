@@ -331,18 +331,6 @@ namespace ParmakiziPersonelTakip
             {
                 komut.CommandText = "UPDATE personel SET toplamUcretsiz-=@eskiGunSayisi, toplamRaporlu+=@yeniGunSayisi WHERE personelid=@id";
             }
-            /*else if (eskiizinTipi == "RAPORLU" && yeniizinTipi == "RAPORLU")
-            {
-                komut.CommandText = "UPDATE personel SET toplamRaporlu-=@eskigunSayisi, toplamRaporlu+=@yeniGunSayisi WHERE personelid=@id";
-            }
-            else if (eskiizinTipi == "ÜCRETLİ" && yeniizinTipi == "ÜCRETLİ")
-            {
-                komut.CommandText = "UPDATE personel SET toplamUcretli-=@eskiGunSayisi, toplamUcretli+=@yeniGunSayisi WHERE personelid=@id";
-            }
-            else
-            {
-                komut.CommandText = "UPDATE personel set toplamUcretsiz-=@eskiGunSayisi, toplamUcretsiz+=@yeniGunSayisi WHERE personelid=@id";
-            }*/
             else
             {//ÜCRETSİZ-ÜCRETLİ
                 komut.CommandText = "UPDATE personel SET toplamUcretsiz-=@eskiGunSayisi, toplamUcretli+=@yeniGunSayisi WHERE personelid=@id";

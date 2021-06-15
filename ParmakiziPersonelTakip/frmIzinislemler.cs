@@ -110,6 +110,16 @@ namespace ParmakiziPersonelTakip
             Acik();
             btnizinGuncelle.Enabled = false;
             btnizinSil.Enabled = false;
+            txtPersonelid.Enabled = false;
+            txtPersonelAd.Enabled = false;
+            txtPersonelSoyad.Enabled = false;
+            txtRaporlu.Enabled = false;
+            txtUcretli.Enabled = false;
+            txtUcretsiz.Enabled = false;
+            txtizinid.Enabled = false;
+            txtKalanizin.Enabled = false;
+            txtizinGunSayisi.Enabled = false;
+
             btnizinKaydet.BackColor = Color.YellowGreen;
             Temizle(this);
         }
@@ -238,8 +248,13 @@ namespace ParmakiziPersonelTakip
                     }
                     else
                     {
+                        izin.izinid = Convert.ToInt32(txtizinid.Text);
                         izin.Personelid = Convert.ToInt32(txtPersonelid.Text);
-                        if (izin.izinHakki(Convert.ToInt32(txtKalanizin.Text), Convert.ToInt32(txtizinGunSayisi.Text)) && personel.gunSayisiGuncelle(izin.Personelid, eskiizinTipi, 
+                        izin.izinTipi = comboBoxizinTipi.SelectedItem.ToString();
+                        izin.izinGunSayisi = Convert.ToInt32(txtizinGunSayisi.Text);
+                        izin.izinBaslangic = dtpizinBaslangic.Value;
+                        izin.izinBitis = dtpizinBitis.Value;
+                        if (izin.izinHakki(Convert.ToInt32(txtKalanizin.Text), Convert.ToInt32(txtizinGunSayisi.Text)) && personel.gunSayisiGuncelle(izin.Personelid, eskiizinTipi,
                         comboBoxizinTipi.Text, eskiGunSayisi, Convert.ToInt32(txtizinGunSayisi.Text)) && izin.izinGuncelle(izin))
                         {
                             MessageBox.Show("PERSONEL İZİN BİLGİLERİ GÜNCELLENDİ", "BİLGİ", MessageBoxButtons.OK, MessageBoxIcon.Information);

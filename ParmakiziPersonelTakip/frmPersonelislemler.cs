@@ -167,8 +167,8 @@ namespace ParmakiziPersonelTakip
             Kapali();
             yenileVeListele();
             //Oluşturululan seriPort'un bağlantı hızı ve port adını tanımlama
-            seriPort.BaudRate = 9600;
-            seriPort.PortName = "COM3";
+            //seriPort.BaudRate = 9600;
+            //seriPort.PortName = "COM3";
         }
 
         private void btnPersonelEkle_Click(object sender, EventArgs e)
@@ -247,11 +247,11 @@ namespace ParmakiziPersonelTakip
         private void btnYeniPersonel_Click(object sender, EventArgs e)
         {
             Acik();
-            btnPersonelEkle.Enabled = false;
+            btnPersonelEkle.Enabled = true;
             btnPersonelGuncelle.Enabled = false;
             btnPersonelSil.Enabled = false;
             Temizle(this);
-            seriPort.Open();
+            //seriPort.Open();
         }
 
         private void btnPersonelSil_Click(object sender, EventArgs e)

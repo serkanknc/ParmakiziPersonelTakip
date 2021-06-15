@@ -171,7 +171,7 @@ namespace ParmakiziPersonelTakip
         public bool tekrarEdenKayit(int personelid, string izinTipi, DateTime izinBaslangic, DateTime izinBitis)
         {
             bool durum = false;
-            SqlCommand komut = new SqlCommand("SELECT * FROM izin WHERE personelid=@id AND izinTipi=@tip AND izinBaslangic=@baslangic OR izinBitis=@bitis AND silindi=0", baglanti);
+            SqlCommand komut = new SqlCommand("SELECT * FROM izin WHERE personelid=@id AND izinBaslangic=@baslangic AND izinBitis=@bitis AND izinTipi=@tip AND silindi=0", baglanti);
             komut.Parameters.Add("@id", SqlDbType.Int).Value = personelid;
             komut.Parameters.Add("@tip", SqlDbType.VarChar).Value = izinTipi;
             komut.Parameters.Add("@baslangic", SqlDbType.Date).Value = izinBaslangic;
@@ -195,6 +195,10 @@ namespace ParmakiziPersonelTakip
             if (istenilenizin <= kalanizin)
             {
                 durum = true;
+            }
+            else
+            {
+                durum = false;
             }
             return durum;
         }
